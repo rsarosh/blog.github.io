@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: rgb(19, 16, 16);
     font-style: normal;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
@@ -40,3 +40,32 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
+/* unvisited link */
+a:link {
+  color: lightblue;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: lightblue;
+  text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: lightgray;
+  text-decoration: none;
+}
+
+/* selected link */
+code {
+  color: rgb(151, 213, 221);
+  
+}
