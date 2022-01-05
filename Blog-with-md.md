@@ -7,7 +7,7 @@
 I wanted to have lowest possible load of tools and tech for my blogging. I wanted to write my blogs in markdown, like readme files. However, md files are not liked by the browsers. They want HTML files. So, my first instinct was to use 'github actions' to convert the checked in md files into html. But then the problem was to see the html output too late.
 
 ## Convert the markdown to html
-So, I thought, using one of the extensions I will convert the md to html in VSCode. There are many "Run on Save" Extension for VS Code. but none work properly in the my VSCode. Their documentation seems very straight forward, but unfortunately they don't work as advertised. So, lets go more simpler.
+So, I thought, using one of the extensions I will convert the md to html in VSCode. There are many "Run on Save" Extension for VS Code. But none work properly in my VSCode. Their documentation seems very straight forward, but unfortunately they don't work as advertised. So, lets go more simpler.
 
 Best option i found was to use Gulp and markdown-it. [See more here](
 https://code.visualstudio.com/docs/languages/markdown#_automating-markdown-compilation)
