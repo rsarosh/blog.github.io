@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-footer": "^2.1.0",
+    "gulp-header": "^2.0.9",
+    "gulp-markdown-it": "^0.1.1"
+  }
+}

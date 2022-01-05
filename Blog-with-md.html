@@ -1,0 +1,53 @@
+<html><link rel="stylesheet" type="text/css" href="./style.css"><header><img src="image/header.jpg" style="width: 100%; Height:150px" ><div style="text-align: center;"><div style="font-size: xx-large;">Rafat Sarosh</div><a ref="rsarosh.github.io">Home </a>| <a ref="https://www.linkedin.com/in/rafatsarosh/" windows="_new">About </a></div><br /></header>  <h1>World Simplest Blogging Platform</h1>
+<p>To write this blog, I am using simplest possible blogging platform. I am using <a href="%22https://pages.github.com/">Github Pages</a> to create my blog. But, wait i am not even using Jekyll.</p>
+<p>In this blog post i am talking about how you can maintain a blog from Github, VS Code and with markdown files. Please check the <a href="https://pages.github.com/">How you can create a website from Github</a>. However, github recommends to use Jekyll. It may be a simple tool, but i could't get it installed properly on my window machine. The installation process was scary,  hundred's of ruby files, Gems etc, and god knows what all dependencies where getting downloaded on my machine.</p>
+<p>I wanted to have lowest possible load of tools and tech for my blogging. I wanted to write my blogs in markdown, like readme files. However, md files are not liked by the browsers. They want HTML files. So, my first instinct was to use 'github actions' to convert the checked in md files into html. But then the problem was to see the html output too late.</p>
+<h2>Convert the markdown to html</h2>
+<p>So, I thought, using one of the extensions I will convert the md to html in VSCode. There are many &quot;Run on Save&quot; Extension for VS Code. but none work properly in the my VSCode. Their documentation seems very straight forward, but unfortunately they don't work as advertised. So, lets go more simpler.</p>
+<p>Best option i found was to use Gulp and markdown-it. <a href="https://code.visualstudio.com/docs/languages/markdown#_automating-markdown-compilation">See more here</a></p>
+<p>Below few lines of code is only what you need. This code converts md files to html. Adds style sheet to the created html as a header and using gulp-footer formatted the file to a proper html file.</p>
+<p>Here is my Gulp file:</p>
+<pre><code>        var gulp = require('gulp');
+        var markdown = require('gulp-markdown-it');
+        var header = require('gulp-header');
+        var footer = require('gulp-footer');
+
+        gulp.task('markdown', function() {
+            return gulp
+            .src('*.md')
+            .pipe(markdown())
+            .pipe(header('&lt;html&gt; &lt;header&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./style.css&quot;&gt; &lt;/header&gt;'))
+            .pipe(footer('&lt;/html&gt;'))
+            .pipe(
+            gulp.dest(function(f) {
+                return f.base;
+            })
+            .pipe(header('&lt;/html&gt; '))
+            );
+        });
+
+        gulp.task('convert-md-to-html', function() {
+            return gulp.watch('*.md', gulp.series(['markdown']));
+        });
+</code></pre>
+<blockquote>
+<p>of course don't forget to npm install the packages.</p>
+</blockquote>
+<p>Here is the Task.json file</p>
+<pre><code>        {
+        &quot;version&quot;: &quot;2.0.0&quot;,
+        &quot;tasks&quot;: [
+            {
+            &quot;type&quot;: &quot;gulp&quot;,
+            &quot;task&quot;: &quot;convert-md-to-html&quot;,
+            &quot;problemMatcher&quot;: [],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            }
+            }
+        ]
+        }
+</code></pre>
+<p>What i like about this approach is there is no complicated tools are needed. Just write a md file, push it to GitHub and it get published.</p>
+</html>
