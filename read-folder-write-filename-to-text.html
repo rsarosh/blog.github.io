@@ -1,0 +1,16 @@
+<html><link rel="stylesheet" type="text/css" href="./style.css"><header><img src="image/header.jpg" style="width: 100%; Height:150px" ><div style="text-align: center;"><div style="font-size: xx-large;">Rafat Sarosh</div><a href="index.html">Home </a>| <a href="https://www.linkedin.com/in/rafatsarosh/" windows="_new">About </a></div><br /></header>  <h1>Python Utility</h1>
+<h2>Read any folder and write all the filenames to a CSV file with the label</h2>
+<h2>FileName, Label</h2>
+<p>You need this kind of csv files often for training.</p>
+<pre><code>            import os
+            FOLDER_TO_READ = &quot;/content/sample_data/train/&quot;
+            LABEL = &quot;MY_LABEL&quot;
+            for root, dirs, files in os.walk(&quot;YOUR_DIRECTORY_NAME&quot;):
+                with open('.\imageFile.csv', 'a') as the_file:
+                    for fileName in files:
+                        FileName = FOLDER_TO_READ + fileName
+                        the_file.write( FileName + &quot;, LABEL\n&quot;)
+                
+            print ('done')   
+</code></pre>
+<a href="https://github.com/rsarosh/rsarosh.github.io/issues/new" window="new"> comment? </a> </html>

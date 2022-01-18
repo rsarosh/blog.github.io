@@ -9,7 +9,7 @@ gulp.task('markdown', function() {
     .pipe(markdown())
     .pipe(header('<html><link rel="stylesheet" type="text/css" href="./style.css"><header><img src="image/header.jpg" style="width: 100%; Height:150px" ><div style="text-align: center;"><div style="font-size: xx-large;">Rafat Sarosh</div><a href="index.html">Home </a>| <a href="https://www.linkedin.com/in/rafatsarosh/" windows="_new">About </a></div><br /></header>  '))
 
-    .pipe(footer('</html>'))
+    .pipe(footer('<a href="https://github.com/rsarosh/rsarosh.github.io/issues/new" window="new"> comment? </a> </html>'))
     .pipe(
       gulp.dest(function(f) {
         return f.base;

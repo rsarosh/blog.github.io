@@ -61,6 +61,5 @@ Here is the Task.json file
 
 
 
-
-
 What I like about this approach is there is no complicated tools are needed. Just write a md file, push it to GitHub and it get published. 
+
